@@ -1,5 +1,5 @@
-const { getDB } = require('./../config/db');
-const User = require('./../models/user');
+const { getDB } = require('../config/db');
+const User = require('../models/user');
 const { ObjectId } = require('mongodb');
 
 exports.getUsers = async (req, res) => {
