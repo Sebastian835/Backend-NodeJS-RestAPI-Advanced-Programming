@@ -1,5 +1,5 @@
 const { getDB } = require('./../config/db');
-const VerifyData = require('./../models/VerifyData');
+const VerifyData = require('./../collections/VerifyData');
 const { ObjectId } = require('mongodb');
 
 // Obtener todos los registros
