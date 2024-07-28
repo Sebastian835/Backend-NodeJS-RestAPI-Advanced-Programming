@@ -1,8 +1,9 @@
 class VerifyDocument{
-    constructor(id_uploadDocument, id_verifyData, document ){
-        this.id_uploadDocument = id_uploadDocument;
+    constructor(id_verifyData, created_at, updated_at, id_state) {
         this.id_verifyData = id_verifyData;
-        this.document = document;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+        this.id_state = id_state;
     }
 }
 module.exports = VerifyDocument;

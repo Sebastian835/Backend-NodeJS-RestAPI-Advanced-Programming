@@ -1,3 +1,5 @@
+const VerifyDocument = (nameUser) => {
+  return `
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
       dir="ltr"
@@ -354,7 +356,7 @@
                                         color: #001523;
                                       "
                                     >
-                                      Datos Enviados
+                                      Nota de Grado Aceptada
                                     </h1>
                                   </td>
                                 </tr>
@@ -419,7 +421,9 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      ¡Gracias por enviar tus datos!
+                                      Estimado(a) ${nameUser}, nos complace informarle que el documento de
+                                      la nota de grado cumple con nuestros
+                                      estándares de calidad y ha sido aceptado.
                                     </p>
                                     <p
                                       style="
@@ -447,21 +451,10 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Se ha recibido tu información de registro y
-                                      está siendo procesada.
+                                      Tu registro fue completado exitosamente. Te
+                                      damos la bienvenida al curso para ingreso al
+                                      curso de los diferentes comandos.
                                     </p>
-                                    <p
-                                      style="
-                                        margin: 0;
-                                        mso-line-height-rule: exactly;
-                                        font-family: 'Josefin Sans', helvetica,
-                                          arial, sans-serif;
-                                        line-height: 24px;
-                                        letter-spacing: 0;
-                                        color: #001523;
-                                        font-size: 16px;
-                                      "
-                                    ></p>
                                     <p
                                       style="
                                         margin: 0;
@@ -488,7 +481,7 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Gracias por tu paciencia.
+                                      Gracias por tu colaboración.
                                     </p>
                                     <p
                                       style="
@@ -517,20 +510,6 @@
                                       "
                                     >
                                       Saludos,
-                                    </p>
-                                    <p
-                                      style="
-                                        margin: 0;
-                                        mso-line-height-rule: exactly;
-                                        font-family: 'Josefin Sans', helvetica,
-                                          arial, sans-serif;
-                                        line-height: 24px;
-                                        letter-spacing: 0;
-                                        color: #001523;
-                                        font-size: 16px;
-                                      "
-                                    >
-                                      ​
                                     </p>
                                     <p
                                       style="
@@ -786,7 +765,7 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      comandoespe&#64;espe.edu.ec
+                                      comandoespe&#64espe.edu.ec
                                     </p>
                                   </td>
                                 </tr>
@@ -1111,110 +1090,137 @@
                                     <table
                                       cellpadding="0"
                                       cellspacing="0"
-                                      width="100%"
-                                      role="presentation"
+                                      class="es-right"
+                                      align="right"
+                                      role="none"
                                       style="
                                         mso-table-lspace: 0pt;
                                         mso-table-rspace: 0pt;
                                         border-collapse: collapse;
                                         border-spacing: 0px;
+                                        float: right;
                                       "
                                     >
                                       <tr>
                                         <td
-                                          align="center"
+                                          align="left"
                                           style="
                                             padding: 0;
                                             margin: 0;
-                                            padding-bottom: 15px;
-                                            padding-top: 5px;
+                                            width: 306px;
                                           "
                                         >
-                                          <p
+                                          <table
+                                            cellpadding="0"
+                                            cellspacing="0"
+                                            width="100%"
+                                            role="presentation"
                                             style="
-                                              margin: 0;
-                                              mso-line-height-rule: exactly;
-                                              font-family: 'Josefin Sans',
-                                                helvetica, arial, sans-serif;
-                                              line-height: 18px;
-                                              letter-spacing: 0;
-                                              color: #f8f9fb;
-                                              font-size: 12px;
+                                              mso-table-lspace: 0pt;
+                                              mso-table-rspace: 0pt;
+                                              border-collapse: collapse;
+                                              border-spacing: 0px;
                                             "
                                           >
-                                            <a
-                                              target="_blank"
-                                              href="https://viewstripo.email"
-                                              style="
-                                                mso-line-height-rule: exactly;
-                                                text-decoration: underline;
-                                                color: #f8f9fb;
-                                                font-size: 12px;
-                                              "
-                                              >Cuentat&nbsp;</a
-                                            >•
-                                            <a
-                                              target="_blank"
-                                              href="https://viewstripo.email"
-                                              style="
-                                                mso-line-height-rule: exactly;
-                                                text-decoration: underline;
-                                                color: #f8f9fb;
-                                                font-size: 12px;
-                                              "
-                                              >Blog</a
-                                            >&nbsp;•
-                                            <a
-                                              target="_blank"
-                                              href="https://viewstripo.email"
-                                              style="
-                                                mso-line-height-rule: exactly;
-                                                text-decoration: underline;
-                                                color: #f8f9fb;
-                                                font-size: 12px;
-                                              "
-                                              >Ayuda</a
-                                            >
-                                          </p>
-                                        </td>
-                                      </tr>
-                                      <tr>
-                                        <td
-                                          align="center"
-                                          style="
-                                            padding: 0;
-                                            margin: 0;
-                                            padding-bottom: 5px;
-                                          "
-                                        >
-                                          <p
-                                            style="
-                                              margin: 0;
-                                              mso-line-height-rule: exactly;
-                                              font-family: 'Josefin Sans',
-                                                helvetica, arial, sans-serif;
-                                              line-height: 18px;
-                                              letter-spacing: 0;
-                                              color: #f8f9fb;
-                                              font-size: 12px;
-                                            "
-                                          >
-                                            Incripciones a Fuerzas Armadas,
-                                            inscribite a lo que desees<br /><br /><a
-                                              href=""
-                                              target="_blank"
-                                              style="
-                                                mso-line-height-rule: exactly;
-                                                text-decoration: underline;
-                                                color: #f8f9fb;
-                                                font-size: 12px;
-                                              "
-                                              >Desuscribirse</a
-                                            >
-                                          </p>
+                                            <tr>
+                                              <td
+                                                align="center"
+                                                style="
+                                                  padding: 0;
+                                                  margin: 0;
+                                                  padding-bottom: 15px;
+                                                  padding-top: 5px;
+                                                "
+                                              >
+                                                <p
+                                                  style="
+                                                    margin: 0;
+                                                    mso-line-height-rule: exactly;
+                                                    font-family: 'Josefin Sans',
+                                                      helvetica, arial, sans-serif;
+                                                    line-height: 18px;
+                                                    letter-spacing: 0;
+                                                    color: #f8f9fb;
+                                                    font-size: 12px;
+                                                  "
+                                                >
+                                                  <a
+                                                    target="_blank"
+                                                    href="https://viewstripo.email"
+                                                    style="
+                                                      mso-line-height-rule: exactly;
+                                                      text-decoration: underline;
+                                                      color: #f8f9fb;
+                                                      font-size: 12px;
+                                                    "
+                                                    >Cuentat&nbsp;</a
+                                                  >•
+                                                  <a
+                                                    target="_blank"
+                                                    href="https://viewstripo.email"
+                                                    style="
+                                                      mso-line-height-rule: exactly;
+                                                      text-decoration: underline;
+                                                      color: #f8f9fb;
+                                                      font-size: 12px;
+                                                    "
+                                                    >Blog</a
+                                                  >&nbsp;•
+                                                  <a
+                                                    target="_blank"
+                                                    href="https://viewstripo.email"
+                                                    style="
+                                                      mso-line-height-rule: exactly;
+                                                      text-decoration: underline;
+                                                      color: #f8f9fb;
+                                                      font-size: 12px;
+                                                    "
+                                                    >Ayuda</a
+                                                  >
+                                                </p>
+                                              </td>
+                                            </tr>
+                                            <tr>
+                                              <td
+                                                align="center"
+                                                style="
+                                                  padding: 0;
+                                                  margin: 0;
+                                                  padding-bottom: 5px;
+                                                "
+                                              >
+                                                <p
+                                                  style="
+                                                    margin: 0;
+                                                    mso-line-height-rule: exactly;
+                                                    font-family: 'Josefin Sans',
+                                                      helvetica, arial, sans-serif;
+                                                    line-height: 18px;
+                                                    letter-spacing: 0;
+                                                    color: #f8f9fb;
+                                                    font-size: 12px;
+                                                  "
+                                                >
+                                                  Incripciones a Fuerzas Armadas,
+                                                  inscribite a lo que desees<br /><br /><a
+                                                    href=""
+                                                    target="_blank"
+                                                    style="
+                                                      mso-line-height-rule: exactly;
+                                                      text-decoration: underline;
+                                                      color: #f8f9fb;
+                                                      font-size: 12px;
+                                                    "
+                                                    >Desuscribirse</a
+                                                  >
+                                                </p>
+                                              </td>
+                                            </tr>
+                                          </table>
                                         </td>
                                       </tr>
                                     </table>
+                                    <!--[if mso]></td></tr></table><![endif]-->
                                   </td>
                                 </tr>
                               </table>
@@ -1235,11 +1241,7 @@
     </div>
   </body>
   
-  <!--<div class="email-container">
-    <h2>¡Gracias por enviar tus datos!</h2>
-    <p>Se ha recibido tu información de registro y esta siendo procesada.</p>
-    <p>Se notificará por correo el progreso de tu registro.</p>
-    <p>Gracias por tu paciencia.</p>
-    <p>Saludos, <br>Equipo de Soporte y Desarrollo</p>
-  </div>-->
-  
+  `;
+};
+
+module.exports = VerifyDocument;

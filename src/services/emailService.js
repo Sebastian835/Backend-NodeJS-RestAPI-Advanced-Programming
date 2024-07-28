@@ -1,7 +1,5 @@
 const nodemailer = require('nodemailer');
-const fs = require('fs');
-const path = require('path');
-require('dotenv').config(); 
+require('dotenv').config();
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -11,15 +9,12 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const sendEmail = (to, subject, templateName) => {
-    const templatePath = path.join(__dirname, '..', 'emails', `${templateName}.html`);
-    const template = fs.readFileSync(templatePath, 'utf8');
-
+const sendEmail = (to, subject, htmlContent) => {
     const mailOptions = {
         from: process.env.EMAIL_USER,
         to: to,
         subject: subject,
-        html: template
+        html: htmlContent
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

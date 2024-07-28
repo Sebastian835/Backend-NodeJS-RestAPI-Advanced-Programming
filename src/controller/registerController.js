@@ -3,6 +3,9 @@ const Register = require("./../collections/Register");
 const VerifyData = require("./../collections/VerifyData");
 const { ObjectId } = require("mongodb");
 
+const emailService = require("../services/emailService");
+const Registro = require("../emails/register");
+
 // Obtener todos los registros
 exports.getRegisters = async (req, res) => {
   try {
@@ -169,7 +172,7 @@ exports.updateRegisterByIdentification = async (req, res) => {
       id_state
     );
 
-    console.log('verifyData:', verifyData);
+    console.log("verifyData:", verifyData);
     await db.collection("verifyData").insertOne(verifyData);
 
     res.json({
@@ -300,11 +303,8 @@ exports.createOrUpdateRegister = async (req, res) => {
         { returnOriginal: false, returnDocument: "after" }
       );
 
-      console.log("existingRegister", existingRegister);
-      console.log("update", updatedRegister._id);
       // Actualizar verifyData
       const id_state = 1;
-
       const verifyData = new VerifyData(
         existingRegister._id,
         new Date(),
@@ -313,6 +313,9 @@ exports.createOrUpdateRegister = async (req, res) => {
       );
       console.log("verifyData", verifyData);
       await db.collection("verifyData").insertOne(verifyData);
+
+      const htmlContent = Registro(name);
+      emailService.sendEmail(email, "Real Agency - Register", htmlContent);
 
       res.json({
         state: "exito",
@@ -344,6 +347,9 @@ exports.createOrUpdateRegister = async (req, res) => {
         id_state
       );
       await db.collection("verifyData").insertOne(verifyData);
+
+      const htmlContent = Registro(name);
+      emailService.sendEmail(email, "Real Agency - Register", htmlContent);
 
       res.status(201).json({
         state: "exito",

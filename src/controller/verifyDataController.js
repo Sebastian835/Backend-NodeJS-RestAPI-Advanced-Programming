@@ -1,6 +1,11 @@
 const { getDB } = require('./../config/db');
-const VerifyData = require('./../collections/VerifyData');
 const { ObjectId } = require('mongodb');
+const VerifyDocumentCreate = require("../collections/VerifyDocument");
+const UploadDocumentCreate = require("../collections/UploadDocument");
+
+const emailService = require("../services/emailService");
+const RegistroDenegado = require("../emails/registerDenied");
+const SubirArchivo = require("../emails/uploadDocument");
 
 // Obtener todos los registros
 exports.getVerifyData = async (req, res) => {
@@ -26,33 +31,42 @@ exports.getRelationsVerifyData = async (req, res) => {
   }
 };
 
-// Crear un nuevo registro
-exports.createVerifyData = async (req, res) => {
-  const { id_register, created_at, updated_at } = req.body;
-  const id_state = 1;
-  try {
-    const db = getDB();
-    const verifyData = new VerifyData(id_register, created_at, updated_at, id_state);
-    console.log('verifyData:', verifyData);
-    await db.collection('verifyData').insertOne(verifyData);
-    res.status(201).json({ estado: 'exito', codigo: 201, mensaje: 'Datos de verificación creados correctamente', data: verifyData });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ estado: 'error', codigo: 500, mensaje: 'Error del servidor' });
-  }
-};
-
 // Actualizar un registro
 exports.updateVerifyData = async (req, res) => {
   const { id } = req.params;
-  const { id_register, created_at, updated_at } = req.body;
+  const { updated_at } = req.body;
   try {
     const db = getDB();
+
+    const searchName = await db.collection('verifyData').findOne({ _id: new ObjectId(id) });
+    const register = await  db.collection('registers').findOne({ _id: new ObjectId(searchName.id_register) });
+    
+    const htmlContent = SubirArchivo(register.name);
+    emailService.sendEmail(register.email, "Real Agency - Datatos Aceptados", htmlContent);
+
     const updatedVerifyData = await db.collection('verifyData').findOneAndUpdate(
       { _id: new ObjectId(id) },
-      { $set: { id_register, created_at, updated_at } },
+      { $set: { updated_at, id_state: 2 } },
       { returnOriginal: false }
     );
+
+    const VerifyDocument = new VerifyDocumentCreate(
+      new ObjectId(id),
+      new Date(),
+      new Date(),
+      1
+    );
+    await db.collection("verifyDocument").insertOne(VerifyDocument);
+
+    const searchData = await db.collection('verifyDocument').findOne({ id_verifyData: new ObjectId(id) });
+    const uploadDocument = new UploadDocumentCreate(
+      new ObjectId(searchData._id),
+      null,
+      1
+    );
+    await db.collection("uploadDocument").insertOne(uploadDocument);
+
+
     res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación actualizados correctamente', data: updatedVerifyData.value });
   } catch (err) {
     console.error(err);
@@ -65,6 +79,12 @@ exports.deleteVerifyData = async (req, res) => {
   const { id } = req.params;
   try {
     const db = getDB();
+    const searchName = await db.collection('verifyData').findOne({ _id: new ObjectId(id) });
+    const register = await  db.collection('registers').findOne({ _id: new ObjectId(searchName.id_register) });
+    
+    const htmlContent = RegistroDenegado(register.name);
+    emailService.sendEmail(register.email, "Real Agency - Datos Rechazados", htmlContent);
+
     await db.collection('verifyData').deleteOne({ _id: new ObjectId(id) });
     res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación eliminados correctamente' });
   } catch (err) {

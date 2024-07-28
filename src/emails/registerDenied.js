@@ -1,3 +1,5 @@
+const RegistroDenegado = (nameUser) => {
+  return`
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
       dir="ltr"
@@ -358,7 +360,7 @@
                                         color: #001523;
                                       "
                                     >
-                                      Tus datos han sido validados y aceptados
+                                      Tus datos han sido rechazados
                                     </h1>
                                   </td>
                                 </tr>
@@ -423,9 +425,9 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Nos complace informarle que puede continuar
-                                      al siguiente paso para completar tu
-                                      inscripción al curso.
+                                      Estimado(a) ${nameUser}, lamentablemente tu información es
+                                      inconsistente o no cumple con los requisitos
+                                      establecidos.
                                     </p>
                                     <p
                                       style="
@@ -453,12 +455,11 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Por favor, suba el documento de nota de
-                                      grado usando el siguiente enlace:
-                                      <a
-                                        href="{{ linkSubida }}"
-                                        class="email-link"
-                                        >Subir archivo</a
+                                      Por favor, revisa los detalles y vuelve a
+                                      enviar tus datos corregidos o actualizados,
+                                      usando el siguiente enlace:
+                                      <a href="{{ linkRegistro }}"
+                                        >Formulario de registro</a
                                       >
                                     </p>
                                     <p
@@ -812,7 +813,7 @@
                         "
                       >
                         <!--[if mso]><table style="width:520px" cellpadding="0" cellspacing="0"><tr>
-    <td style="width:194px" valign="top"><![endif]-->
+                            <td style="width:194px" valign="top"><![endif]-->
                         <table
                           cellpadding="0"
                           cellspacing="0"
@@ -1265,11 +1266,8 @@
     </div>
   </body>
   
-  <!--<div class="email-container">
-    <h2>¡Tus datos has sido validados y aceptados!</h2>
-    <p>Nos complace informarte que puedes continuar al siguiente paso para completar tu registro.</p>
-    <p>Por favor, sube el comprobante de deposito del curso usando el siguiente enlace:</p>
-    <a href="{{linkSubida}}" class="email-link">Subir archivo</a>
-    <p>Saludos, <br> Equipo de Soporte y Desarrollo</p>
-  </div>-->
-  
+
+  `;
+};
+
+module.exports = RegistroDenegado;

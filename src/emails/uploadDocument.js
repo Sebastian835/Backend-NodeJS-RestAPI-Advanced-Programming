@@ -1,3 +1,5 @@
+const SubirDocumento = (nameUser) => {
+  return `
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
       dir="ltr"
@@ -358,7 +360,7 @@
                                         color: #001523;
                                       "
                                     >
-                                      Tus datos han sido rechazados
+                                      Tus datos han sido validados y aceptados
                                     </h1>
                                   </td>
                                 </tr>
@@ -423,9 +425,9 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Lamentablemente tu información es
-                                      inconsistente o no cumple con los requisitos
-                                      establecidos.
+                                      Estimado(a) ${nameUser}, nos complace informarle que puede continuar
+                                      al siguiente paso para completar tu
+                                      inscripción al curso.
                                     </p>
                                     <p
                                       style="
@@ -453,11 +455,12 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Por favor, revisa los detalles y vuelve a
-                                      enviar tus datos corregidos o actualizados,
-                                      usando el siguiente enlace:
-                                      <a href="{{ linkRegistro }}"
-                                        >Formulario de registro</a
+                                      Por favor, suba el documento de nota de
+                                      grado usando el siguiente enlace:
+                                      <a
+                                        href="{{ linkSubida }}"
+                                        class="email-link"
+                                        >Subir archivo</a
                                       >
                                     </p>
                                     <p
@@ -811,7 +814,7 @@
                         "
                       >
                         <!--[if mso]><table style="width:520px" cellpadding="0" cellspacing="0"><tr>
-                            <td style="width:194px" valign="top"><![endif]-->
+    <td style="width:194px" valign="top"><![endif]-->
                         <table
                           cellpadding="0"
                           cellspacing="0"
@@ -1264,11 +1267,7 @@
     </div>
   </body>
   
-  <!--<div class="email-container">
-    <h2>¡Tus datos han sido rechazados</h2>
-    <p>Lamentablemente, tu información esta inconsistente o no cumple con nuestros requisitos.</p>
-    <p>Por favor, revisa los detalles y vuelve a enviar tus datos utilizando el siguiente enlace:</p>
-    <a href="{{linkRegistro}}" class="email-link">Formulario de Registro</a>
-    <p>Saludos, <br>Equipo de Soporte y Desarrollo</p>
-  </div>-->
-  
+  `;
+};
+
+module.exports = SubirDocumento;
