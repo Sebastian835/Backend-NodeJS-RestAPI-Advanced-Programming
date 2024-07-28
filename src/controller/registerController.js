@@ -1,7 +1,7 @@
-const { getDB } = require('./../config/db');
-const Register = require('./../models/Register');
-const VerifyData = require('./../models/VerifyData');
-const { ObjectId } = require('mongodb');
+const { getDB } = require("./../config/db");
+const Register = require("./../collections/Register");
+const VerifyData = require("./../collections/VerifyData");
+const { ObjectId } = require("mongodb");
 
 // Obtener todos los registros
 exports.getRegisters = async (req, res) => {
@@ -105,14 +105,12 @@ exports.createRegister = async (req, res) => {
       gradeNote
     );
     await db.collection("registers").insertOne(register);
-    res
-      .status(201)
-      .json({
-        state: "exito",
-        code: 201,
-        message: "Registro creado correctamente",
-        data: register,
-      });
+    res.status(201).json({
+      state: "exito",
+      code: 201,
+      message: "Registro creado correctamente",
+      data: register,
+    });
   } catch (err) {
     console.error(err);
     res
@@ -137,25 +135,23 @@ exports.updateRegisterByIdentification = async (req, res) => {
   } = req.body;
   try {
     const db = getDB();
-    const updatedRegister = await db
-      .collection("registers")
-      .findOneAndUpdate(
-        { identification: identification },
-        {
-          $set: {
-            phone,
-            email,
-            name,
-            birthdate,
-            id_province,
-            address,
-            id_gender,
-            id_commandType,
-            gradeNote,
-          },
+    const updatedRegister = await db.collection("registers").findOneAndUpdate(
+      { identification: identification },
+      {
+        $set: {
+          phone,
+          email,
+          name,
+          birthdate,
+          id_province,
+          address,
+          id_gender,
+          id_commandType,
+          gradeNote,
         },
-        { returnOriginal: false, returnDocument: "after" }
-      );
+      },
+      { returnOriginal: false, returnDocument: "after" }
+    );
 
     if (!updatedRegister.value) {
       return res
@@ -164,11 +160,16 @@ exports.updateRegisterByIdentification = async (req, res) => {
     }
 
     // Actualizar verifyData
+    const id_state = 1;
+
     const verifyData = new VerifyData(
       updatedRegister.value._id,
       new Date(),
-      new Date()
+      new Date(),
+      id_state
     );
+
+    console.log('verifyData:', verifyData);
     await db.collection("verifyData").insertOne(verifyData);
 
     res.json({
@@ -202,26 +203,24 @@ exports.updateRegister = async (req, res) => {
   } = req.body;
   try {
     const db = getDB();
-    const updatedRegister = await db
-      .collection("registers")
-      .findOneAndUpdate(
-        { _id: new ObjectId(id) },
-        {
-          $set: {
-            identification,
-            phone,
-            email,
-            name,
-            birthdate,
-            id_province,
-            address,
-            id_gender,
-            id_commandType,
-            gradeNote,
-          },
+    const updatedRegister = await db.collection("registers").findOneAndUpdate(
+      { _id: new ObjectId(id) },
+      {
+        $set: {
+          identification,
+          phone,
+          email,
+          name,
+          birthdate,
+          id_province,
+          address,
+          id_gender,
+          id_commandType,
+          gradeNote,
         },
-        { returnOriginal: false, returnDocument: "after" }
-      );
+      },
+      { returnOriginal: false, returnDocument: "after" }
+    );
     if (!updatedRegister.value) {
       return res
         .status(404)
@@ -283,33 +282,34 @@ exports.createOrUpdateRegister = async (req, res) => {
       .findOne({ identification: identification });
     if (existingRegister) {
       console.log("ENTRO AL METODO DE ACTUALIZAR");
-      const updatedRegister = await db
-        .collection("registers")
-        .findOneAndUpdate(
-          { identification: identification },
-          {
-            $set: {
-              phone,
-              email,
-              name,
-              birthdate,
-              id_province,
-              address,
-              id_gender,
-              id_commandType,
-              gradeNote,
-            },
+      const updatedRegister = await db.collection("registers").findOneAndUpdate(
+        { identification: identification },
+        {
+          $set: {
+            phone,
+            email,
+            name,
+            birthdate,
+            id_province,
+            address,
+            id_gender,
+            id_commandType,
+            gradeNote,
           },
-          { returnOriginal: false, returnDocument: "after" }
-        );
+        },
+        { returnOriginal: false, returnDocument: "after" }
+      );
 
       console.log("existingRegister", existingRegister);
       console.log("update", updatedRegister._id);
       // Actualizar verifyData
+      const id_state = 1;
+
       const verifyData = new VerifyData(
         existingRegister._id,
         new Date(),
-        new Date()
+        new Date(),
+        id_state
       );
       console.log("verifyData", verifyData);
       await db.collection("verifyData").insertOne(verifyData);
@@ -336,21 +336,21 @@ exports.createOrUpdateRegister = async (req, res) => {
       const result = await db.collection("registers").insertOne(register);
 
       // Crear verifyData
+      const id_state = 1;
       const verifyData = new VerifyData(
         result.insertedId,
         new Date(),
-        new Date()
+        new Date(),
+        id_state
       );
       await db.collection("verifyData").insertOne(verifyData);
 
-      res
-        .status(201)
-        .json({
-          state: "exito",
-          code: 201,
-          message: "Registro creado correctamente",
-          data: register,
-        });
+      res.status(201).json({
+        state: "exito",
+        code: 201,
+        message: "Registro creado correctamente",
+        data: register,
+      });
     }
   } catch (err) {
     console.error(err);

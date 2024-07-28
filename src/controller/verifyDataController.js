@@ -7,7 +7,19 @@ exports.getVerifyData = async (req, res) => {
   try {
     const db = getDB();
     const verifyData = await db.collection('verifyData').find().toArray();
-    res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación obtenidos correctamente', data: verifyData });
+    res.status(200).json(verifyData);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ estado: 'error', codigo: 500, mensaje: 'Error del servidor' });
+  }
+};
+
+// Obtener todos los registros con datos relacionados
+exports.getRelationsVerifyData = async (req, res) => {
+  try {
+    const db = getDB();
+    const verifyData = await db.collection('fullVerifyData').find().toArray();
+    res.status(200).json(verifyData);
   } catch (err) {
     console.error(err);
     res.status(500).json({ estado: 'error', codigo: 500, mensaje: 'Error del servidor' });
@@ -17,9 +29,11 @@ exports.getVerifyData = async (req, res) => {
 // Crear un nuevo registro
 exports.createVerifyData = async (req, res) => {
   const { id_register, created_at, updated_at } = req.body;
+  const id_state = 1;
   try {
     const db = getDB();
-    const verifyData = new VerifyData(id_register, created_at, updated_at);
+    const verifyData = new VerifyData(id_register, created_at, updated_at, id_state);
+    console.log('verifyData:', verifyData);
     await db.collection('verifyData').insertOne(verifyData);
     res.status(201).json({ estado: 'exito', codigo: 201, mensaje: 'Datos de verificación creados correctamente', data: verifyData });
   } catch (err) {
@@ -58,3 +72,4 @@ exports.deleteVerifyData = async (req, res) => {
     res.status(500).json({ estado: 'error', codigo: 500, mensaje: 'Error del servidor' });
   }
 };
+
