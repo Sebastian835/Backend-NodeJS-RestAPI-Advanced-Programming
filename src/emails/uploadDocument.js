@@ -1,4 +1,4 @@
-const SubirDocumento = (nameUser) => {
+const SubirDocumento = (nameUser, id_verifyDocument) => {
   return `
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
@@ -254,7 +254,7 @@ const SubirDocumento = (nameUser) => {
                                           color: #f8f9fb;
                                           font-size: 12px;
                                         "
-                                        >&#64;</a
+                                        >@</a
                                       >espe.edu.ec
                                     </p>
                                   </td>
@@ -457,10 +457,8 @@ const SubirDocumento = (nameUser) => {
                                     >
                                       Por favor, suba el documento de nota de
                                       grado usando el siguiente enlace:
-                                      <a
-                                        href="{{ linkSubida }}"
-                                        class="email-link"
-                                        >Subir archivo</a
+  
+                                      <a href="http://localhost:4200/subir-recibo/${id_verifyDocument}"> Subir archivo</a>
                                       >
                                     </p>
                                     <p
@@ -747,7 +745,7 @@ const SubirDocumento = (nameUser) => {
                                         font-size: 16px;
                                       "
                                     >
-                                      comandoespe&#64;espe.edu.ec
+                                      comandoespe@espe.edu.ec
                                     </p>
                                   </td>
                                 </tr>

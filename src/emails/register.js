@@ -250,7 +250,7 @@ const Registro = (nameUser) => {
                                           color: #f8f9fb;
                                           font-size: 12px;
                                         "
-                                        >&#64;;</a
+                                        >@</a
                                       >espe.edu.ec
                                     </p>
                                   </td>
@@ -788,7 +788,7 @@ const Registro = (nameUser) => {
                                         font-size: 16px;
                                       "
                                     >
-                                      comandoespe&#64espe.edu.ec
+                                      comandoespe@espe.edu.ec
                                     </p>
                                   </td>
                                 </tr>

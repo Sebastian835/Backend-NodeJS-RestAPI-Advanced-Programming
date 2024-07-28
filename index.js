@@ -4,7 +4,8 @@ const { connectDB } = require('./src/config/db');
 const registerRoutes = require('./src/routes/registerRoutes'); 
 const verifyDataRoutes = require('./src/routes/verifyDataRoutes'); 
 const loadDataRoutes = require('./src/routes/loadDataRoutes'); 
-const verifyDocument = require('./src/routes/verifyDocument'); 
+const verifyDocument = require('./src/routes/verifyDocumentRoutes'); 
+const uploadDocument = require('./src/routes/uploadDocumentRoutes'); 
 
 
 const envLoader = new EnvLoader(); 
@@ -28,6 +29,7 @@ connectDB().then(() => {
   app.use('/api/verifyData', verifyDataRoutes); 
   app.use('/api/load', loadDataRoutes); 
   app.use('/api/verifyDocument', verifyDocument); 
+  app.use('/api/uploadDocument', uploadDocument); 
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

@@ -40,9 +40,6 @@ exports.updateVerifyData = async (req, res) => {
 
     const searchName = await db.collection('verifyData').findOne({ _id: new ObjectId(id) });
     const register = await  db.collection('registers').findOne({ _id: new ObjectId(searchName.id_register) });
-    
-    const htmlContent = SubirArchivo(register.name);
-    emailService.sendEmail(register.email, "Real Agency - Datatos Aceptados", htmlContent);
 
     const updatedVerifyData = await db.collection('verifyData').findOneAndUpdate(
       { _id: new ObjectId(id) },
@@ -62,9 +59,15 @@ exports.updateVerifyData = async (req, res) => {
     const uploadDocument = new UploadDocumentCreate(
       new ObjectId(searchData._id),
       null,
+      null,
       1
     );
     await db.collection("uploadDocument").insertOne(uploadDocument);
+
+    const searchId = await db.collection('uploadDocument').findOne({ id_verifyDocument: new ObjectId(searchData._id) });
+
+    const htmlContent = SubirArchivo(register.name, searchId._id);
+    emailService.sendEmail(register.email, "Real Agency - Datatos Aceptados", htmlContent);
 
 
     res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación actualizados correctamente', data: updatedVerifyData.value });
