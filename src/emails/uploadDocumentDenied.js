@@ -1,3 +1,5 @@
+const uploadDenied = (nameUser) => {
+  return `
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
       dir="ltr"
@@ -420,7 +422,7 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Lamentablemente, tu nota de grado no cumple
+                                      Estimado(a) ${nameUser}, lamentablemente, tu nota de grado no cumple
                                       con nuestro puntaje.
                                     </p>
                                     <p
@@ -478,13 +480,8 @@
                                         font-size: 16px;
                                       "
                                     >
-                                      Por favor, sube de nuevo el comprobante,
-                                      verificando que este correcto, y en el
-                                      formato indicado, utiliza el siguiente
-                                      enlace para subirlo:
-                                      <a href="{{ linkSubida }}"
-                                        >Subir nuevo comprobante</a
-                                      >
+                                      Se emitira en los proximos dias un correo para que vuelva
+                                      a subir su nota de grado.
                                     </p>
                                     <p
                                       style="
@@ -1212,12 +1209,8 @@
     </div>
   </body>
   
-  <!--<div class="email-container">
-    <h2>Pago Rechazado</h2>
-    <p>Lamentablemente, tu comprobante de pago no ha sido aceptado.</p>
-    <p>El comprobante no es el correcto, no se enfocado o no esta en el formato adecuado.</p>
-    <p>Por favor, sube un nuevo comprobante, verificando que sea el correcto y este en el formato adecuado, utilizando el siguiente enlace:</p>
-    <a href="{{linkSubida}}" class="email-link">Subir nuevo comprobante</a>
-    <p>Saludos, <br>Equipo de Soporte y Desarrollo</p>
-  </div>-->
   
+  `;
+};
+
+module.exports = uploadDenied;
