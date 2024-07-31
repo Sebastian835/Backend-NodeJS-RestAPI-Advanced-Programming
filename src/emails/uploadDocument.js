@@ -458,7 +458,7 @@ const SubirDocumento = (nameUser, id_verifyDocument) => {
                                       Por favor, suba el documento de nota de
                                       grado usando el siguiente enlace:
   
-                                      <a href="http://localhost:4200/subir-recibo/${id_verifyDocument}"> Subir archivo</a>
+                                      <a href="http://34.72.25.195:4200/subir-recibo/${id_verifyDocument}"> Subir archivo</a>
                                       >
                                     </p>
                                     <p
