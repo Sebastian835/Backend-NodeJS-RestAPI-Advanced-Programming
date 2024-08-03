@@ -250,7 +250,7 @@ const uploadDenied = (nameUser) => {
                                           color: #f8f9fb;
                                           font-size: 12px;
                                         "
-                                        >&#64;;</a
+                                        >&#64;</a
                                       >espe.edu.ec
                                     </p>
                                   </td>
@@ -451,8 +451,8 @@ const uploadDenied = (nameUser) => {
                                         font-size: 16px;
                                       "
                                     >
-                                      La nota de grado no se puede observar de
-                                      forma correcta.
+                                      Agradecemos tu interés y te deseamos lo mejor en tus futuros proyectos profesionales, 
+                                      te animamos a seguir preparándote.
                                     </p>
                                     <p
                                       style="
@@ -480,8 +480,7 @@ const uploadDenied = (nameUser) => {
                                         font-size: 16px;
                                       "
                                     >
-                                      Se emitira en los proximos dias un correo para que vuelva
-                                      a subir su nota de grado.
+                                      Recuerda que cada esfuerzo te acerca más a tus metas, ¡no te rindas!
                                     </p>
                                     <p
                                       style="
@@ -679,7 +678,7 @@ const uploadDenied = (nameUser) => {
                           <tr>
                             <td
                               align="left"
-                              style="padding: 0; margin: 0; width: 306px"
+                              style="padding: 0; margin: 0; width: 405px"
                             >
                               <table
                                 cellpadding="0"
@@ -695,11 +694,35 @@ const uploadDenied = (nameUser) => {
                               >
                                 <tr>
                                   <td
-                                    align="center"
+                                    align="left"
+                                    class="es-m-txt-c"
+                                    style="padding: 0; margin: 0"
+                                  >
+                                    <h2
+                                      style="
+                                        margin: 0;
+                                        font-family: 'Josefin Sans', helvetica,
+                                          arial, sans-serif;
+                                        mso-line-height-rule: exactly;
+                                        letter-spacing: 0;
+                                        font-size: 32px;
+                                        font-style: normal;
+                                        font-weight: normal;
+                                        line-height: 38px;
+                                        color: #001523;
+                                      "
+                                    >
+                                      César Zambrano
+                                    </h2>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td
+                                    align="left"
+                                    class="es-m-txt-c"
                                     style="
                                       padding: 0;
                                       margin: 0;
-                                      padding-bottom: 15px;
                                       padding-top: 5px;
                                     "
                                   >
@@ -709,55 +732,24 @@ const uploadDenied = (nameUser) => {
                                         mso-line-height-rule: exactly;
                                         font-family: 'Josefin Sans', helvetica,
                                           arial, sans-serif;
-                                        line-height: 18px;
+                                        line-height: 24px;
                                         letter-spacing: 0;
-                                        color: #f8f9fb;
-                                        font-size: 12px;
+                                        color: #001523;
+                                        font-size: 16px;
                                       "
                                     >
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Cuentat&nbsp;</a
-                                      >•
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Blog</a
-                                      >&nbsp;•
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Ayuda</a
-                                      >
+                                      +593 93 958 1046
                                     </p>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td
-                                    align="center"
+                                    align="left"
+                                    class="es-m-txt-c"
                                     style="
                                       padding: 0;
                                       margin: 0;
-                                      padding-bottom: 5px;
+                                      padding-top: 5px;
                                     "
                                   >
                                     <p
@@ -766,24 +758,13 @@ const uploadDenied = (nameUser) => {
                                         mso-line-height-rule: exactly;
                                         font-family: 'Josefin Sans', helvetica,
                                           arial, sans-serif;
-                                        line-height: 18px;
+                                        line-height: 24px;
                                         letter-spacing: 0;
-                                        color: #f8f9fb;
-                                        font-size: 12px;
+                                        color: #001523;
+                                        font-size: 16px;
                                       "
                                     >
-                                      Incripciones a Fuerzas Armadas, inscribite a
-                                      lo que desees<br /><br /><a
-                                        href=""
-                                        target="_blank"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Desuscribirse</a
-                                      >
+                                      comandoespe@espe.edu.ec
                                     </p>
                                   </td>
                                 </tr>
@@ -1089,110 +1070,133 @@ const uploadDenied = (nameUser) => {
                               <table
                                 cellpadding="0"
                                 cellspacing="0"
-                                width="100%"
-                                role="presentation"
+                                class="es-right"
+                                align="right"
+                                role="none"
                                 style="
                                   mso-table-lspace: 0pt;
                                   mso-table-rspace: 0pt;
                                   border-collapse: collapse;
                                   border-spacing: 0px;
+                                  float: right;
                                 "
                               >
                                 <tr>
                                   <td
-                                    align="center"
-                                    style="
-                                      padding: 0;
-                                      margin: 0;
-                                      padding-bottom: 15px;
-                                      padding-top: 5px;
-                                    "
+                                    align="left"
+                                    style="padding: 0; margin: 0; width: 306px"
                                   >
-                                    <p
+                                    <table
+                                      cellpadding="0"
+                                      cellspacing="0"
+                                      width="100%"
+                                      role="presentation"
                                       style="
-                                        margin: 0;
-                                        mso-line-height-rule: exactly;
-                                        font-family: 'Josefin Sans', helvetica,
-                                          arial, sans-serif;
-                                        line-height: 18px;
-                                        letter-spacing: 0;
-                                        color: #f8f9fb;
-                                        font-size: 12px;
+                                        mso-table-lspace: 0pt;
+                                        mso-table-rspace: 0pt;
+                                        border-collapse: collapse;
+                                        border-spacing: 0px;
                                       "
                                     >
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Cuentat&nbsp;</a
-                                      >•
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Blog</a
-                                      >&nbsp;•
-                                      <a
-                                        target="_blank"
-                                        href="https://viewstripo.email"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Ayuda</a
-                                      >
-                                    </p>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td
-                                    align="center"
-                                    style="
-                                      padding: 0;
-                                      margin: 0;
-                                      padding-bottom: 5px;
-                                    "
-                                  >
-                                    <p
-                                      style="
-                                        margin: 0;
-                                        mso-line-height-rule: exactly;
-                                        font-family: 'Josefin Sans', helvetica,
-                                          arial, sans-serif;
-                                        line-height: 18px;
-                                        letter-spacing: 0;
-                                        color: #f8f9fb;
-                                        font-size: 12px;
-                                      "
-                                    >
-                                      Incripciones a Fuerzas Armadas, inscribite a
-                                      lo que desees<br /><br /><a
-                                        href=""
-                                        target="_blank"
-                                        style="
-                                          mso-line-height-rule: exactly;
-                                          text-decoration: underline;
-                                          color: #f8f9fb;
-                                          font-size: 12px;
-                                        "
-                                        >Desuscribirse</a
-                                      >
-                                    </p>
+                                      <tr>
+                                        <td
+                                          align="center"
+                                          style="
+                                            padding: 0;
+                                            margin: 0;
+                                            padding-bottom: 15px;
+                                            padding-top: 5px;
+                                          "
+                                        >
+                                          <p
+                                            style="
+                                              margin: 0;
+                                              mso-line-height-rule: exactly;
+                                              font-family: 'Josefin Sans',
+                                                helvetica, arial, sans-serif;
+                                              line-height: 18px;
+                                              letter-spacing: 0;
+                                              color: #f8f9fb;
+                                              font-size: 12px;
+                                            "
+                                          >
+                                            <a
+                                              target="_blank"
+                                              href="https://viewstripo.email"
+                                              style="
+                                                mso-line-height-rule: exactly;
+                                                text-decoration: underline;
+                                                color: #f8f9fb;
+                                                font-size: 12px;
+                                              "
+                                              >Cuentat&nbsp;</a
+                                            >•
+                                            <a
+                                              target="_blank"
+                                              href="https://viewstripo.email"
+                                              style="
+                                                mso-line-height-rule: exactly;
+                                                text-decoration: underline;
+                                                color: #f8f9fb;
+                                                font-size: 12px;
+                                              "
+                                              >Blog</a
+                                            >&nbsp;•
+                                            <a
+                                              target="_blank"
+                                              href="https://viewstripo.email"
+                                              style="
+                                                mso-line-height-rule: exactly;
+                                                text-decoration: underline;
+                                                color: #f8f9fb;
+                                                font-size: 12px;
+                                              "
+                                              >Ayuda</a
+                                            >
+                                          </p>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td
+                                          align="center"
+                                          style="
+                                            padding: 0;
+                                            margin: 0;
+                                            padding-bottom: 5px;
+                                          "
+                                        >
+                                          <p
+                                            style="
+                                              margin: 0;
+                                              mso-line-height-rule: exactly;
+                                              font-family: 'Josefin Sans',
+                                                helvetica, arial, sans-serif;
+                                              line-height: 18px;
+                                              letter-spacing: 0;
+                                              color: #f8f9fb;
+                                              font-size: 12px;
+                                            "
+                                          >
+                                            Incripciones a Fuerzas Armadas,
+                                            inscribite a lo que desees<br /><br /><a
+                                              href=""
+                                              target="_blank"
+                                              style="
+                                                mso-line-height-rule: exactly;
+                                                text-decoration: underline;
+                                                color: #f8f9fb;
+                                                font-size: 12px;
+                                              "
+                                              >Desuscribirse</a
+                                            >
+                                          </p>
+                                        </td>
+                                      </tr>
+                                    </table>
                                   </td>
                                 </tr>
                               </table>
+                              <!--[if mso]></td></tr></table><![endif]-->
                             </td>
                           </tr>
                         </table>
@@ -1208,7 +1212,6 @@ const uploadDenied = (nameUser) => {
       </table>
     </div>
   </body>
-  
   
   `;
 };

@@ -67,7 +67,7 @@ exports.updateVerifyData = async (req, res) => {
     const searchId = await db.collection('uploadDocument').findOne({ id_verifyDocument: new ObjectId(searchData._id) });
 
     const htmlContent = SubirArchivo(register.name, searchId._id);
-    emailService.sendEmail(register.email, "Real Agency - Datatos Aceptados", htmlContent);
+    emailService.sendEmail(register.email, "Real Agency - Datos Aceptados", htmlContent);
 
 
     res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación actualizados correctamente', data: updatedVerifyData.value });

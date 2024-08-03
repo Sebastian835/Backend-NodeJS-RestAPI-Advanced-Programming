@@ -1,5 +1,5 @@
 const RegistroDenegado = (nameUser) => {
-  return`
+  return `
 <body class="body" style="width: 100%; height: 100%; padding: 0; margin: 0">
     <div
       dir="ltr"
@@ -458,9 +458,9 @@ const RegistroDenegado = (nameUser) => {
                                       Por favor, revisa los detalles y vuelve a
                                       enviar tus datos corregidos o actualizados,
                                       usando el siguiente enlace:
-                                      <a href="http://34.72.25.195:4200/registro-aspirantes"> Formulario de registro</a>
-                                      >
-                                    </p>
+                                      <a href="http://localhost:4200/registro-aspirantes"> Formulario de registro</a>
+                                      
+                                    </p
                                     <p
                                       style="
                                         margin: 0;

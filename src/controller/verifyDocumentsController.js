@@ -3,8 +3,8 @@ const { ObjectId } = require("mongodb");
 
 const emailService = require("../services/emailService");
 const endProcessSuccess = require("../emails/endProcessSuccess");
-
 const uploadDenied = require("../emails/uploadDocumentDenied");
+const uploadDocumentAgain = require("../emails/uploadDocumentAgain");
 
 
 // Obtener todos los registros con datos relacionados
@@ -67,11 +67,9 @@ exports.deleteVerifyDocument = async (req, res) => {
   try {
     const db = getDB();
 
-    
     const nameUser = await db
-    .collection("fullVerifyDocument")
-    .findOne({ _id: new ObjectId(id) });
-
+      .collection("fullVerifyDocument")
+      .findOne({ _id: new ObjectId(id) });
 
     const htmlContent = uploadDenied(nameUser.name);
     emailService.sendEmail(
@@ -80,29 +78,14 @@ exports.deleteVerifyDocument = async (req, res) => {
       htmlContent
     );
 
-    const verifyData = await db
-      .collection("verifyDocument")
-      .findOne({ _id: new ObjectId(id) });
     await db
-      .collection("verifyData")
+      .collection("verifyDocument")
       .findOneAndUpdate(
-        { _id: new ObjectId(verifyData.id_verifyData) },
-        { $set: { id_state: 1 } },
+        { _id: new ObjectId(id) },
+        { $set: { id_state: 3 } },
         { returnOriginal: false }
       );
 
-    const searchId = await db
-      .collection("uploadDocument")
-      .findOne({ id_verifyDocument: new ObjectId(id) });
-
-    await db
-      .collection("uploadDocument")
-      .deleteOne({ _id: new ObjectId(searchId._id) });
-
-      await db.collection("verifyDocument").deleteOne({ _id: new ObjectId(id) });
-
-     
-      
     res.json({
       estado: "exito",
       codigo: 200,
@@ -113,5 +96,26 @@ exports.deleteVerifyDocument = async (req, res) => {
     res
       .status(500)
       .json({ estado: "error", codigo: 500, mensaje: "Error del servidor" });
+  }
+};
+
+exports.updateVerifyDocumentAgain = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const db = getDB();
+
+    const searchVerifyDocument = await db.collection('verifyDocument').findOne({ _id: new ObjectId(id) });
+    const searchId = await db.collection('uploadDocument').findOne({ id_verifyDocument: new ObjectId(searchVerifyDocument._id) });
+
+    const datos = await db.collection('fullVerifyDocument').findOne({ _id: new ObjectId(id) });
+
+    const htmlContent = uploadDocumentAgain(datos.name, searchId._id);
+    emailService.sendEmail(datos.email, "Real Agency - Error en documentacion", htmlContent);
+
+
+    res.json({ estado: 'exito', codigo: 200, mensaje: 'Datos de verificación actualizados correctamente'});
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ estado: 'error', codigo: 500, mensaje: 'Error del servidor' });
   }
 };
